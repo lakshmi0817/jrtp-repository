@@ -6,14 +6,15 @@ import in.ashokit.response.AuthResponse;
 
 public interface CustomerService {
 	
-	public boolean isEmailUnique(String email);
+	public Boolean isEmailUnique(String email);
 	
 	public Boolean register(CustomerDto cutomerDto);
 	
-	public boolean resetPwd(ResetPwdDto resetPwdDto);
+	public Boolean resetPwd(ResetPwdDto resetPwdDto);
 	
 	public CustomerDto getCustomerByEmail(String email);
 	
 	public AuthResponse login(CustomerDto customerDto);
 
+	public Boolean forgotPwd(String email);
 }

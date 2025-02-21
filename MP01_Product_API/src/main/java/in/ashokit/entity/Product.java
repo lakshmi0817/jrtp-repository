@@ -29,7 +29,7 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long productId;
+	private Long id;
 	private String productName;
 	private String desc;
 	private String title;
@@ -42,7 +42,7 @@ public class Product {
 	
 	@ManyToOne
 	@JoinColumn(name = "category_id",nullable = false)
-     private ProductCategory categoryId;
+     private ProductCategory category;
 	
 	
 	

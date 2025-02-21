@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class ProductCategoryDto {
 	
-	private Long categoryId;
+	private Long id;
 	private String categoryName;
 
 }

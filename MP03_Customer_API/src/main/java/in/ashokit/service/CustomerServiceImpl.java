@@ -22,10 +22,8 @@ import in.ashokit.repo.CustomerRepo;
 import in.ashokit.response.AuthResponse;
 
 @Service
-public class CustomerServiceImpl implements CustomerService,UserDetailsService {
+public class CustomerServiceImpl implements CustomerService{
 
-	
-	
 	@Autowired
 	private CustomerRepo customerRepo;
 	
@@ -38,15 +36,9 @@ public class CustomerServiceImpl implements CustomerService,UserDetailsService {
 	@Autowired
 	private AuthenticationManager authManager;	
 	Random rnd = new Random();
-	
-	@Override
-	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		Customer c = customerRepo.findByEmail(email);
-		return new User(c.getEmail(),c.getPwd(),Collections.emptyList());
-	}
 
 	@Override
-	public boolean isEmailUnique(String email) {
+	public Boolean isEmailUnique(String email) {
         Customer c = customerRepo.findByEmail(email);
 		return c==null;
 	}
@@ -69,7 +61,7 @@ public class CustomerServiceImpl implements CustomerService,UserDetailsService {
 	}
 
 	@Override
-	public boolean resetPwd(ResetPwdDto resetPwdDto) {
+	public Boolean resetPwd(ResetPwdDto resetPwdDto) {
         Customer c = customerRepo.findByEmail(resetPwdDto.getEmail());
         if(c!=null) {
         	String newPwd = resetPwdDto.getNewPwd();
@@ -104,6 +96,18 @@ public class CustomerServiceImpl implements CustomerService,UserDetailsService {
 			response.setToken("");
 		}
 		return response;
+	}
+	
+	@Override
+	public Boolean forgotPwd(String email) {
+		Customer c = customerRepo.findByEmail(email);
+		if(c!=null) {
+			String subject = "Reset Pwd Request";
+			String body = "temp body";
+			emailService.sendMail(email, subject, body);
+			return true;
+		}
+		return false;
 	}
 	
 	private String getRandomPwd() {

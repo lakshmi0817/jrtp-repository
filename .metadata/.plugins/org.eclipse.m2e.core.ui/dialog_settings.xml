@@ -6,6 +6,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\jrtp-workspace\MP01_Product_API"/>
 			<item value="C:\jrtp-workspace\Microservices_Security\06-API-Gateway"/>
 			<item value="C:\jrtp-workspace\Microservices_Security\05-Auth-Service"/>
 			<item value="C:\jrtp-workspace\Microservices_Security\04-Greet-API"/>

@@ -11,7 +11,7 @@ public interface ProductService {
 	
 	public List<ProductCategoryDto> findAllCategories();
 	
-	public List<ProductDto> findProductByCategoryId(Long categoryid);
+	public List<ProductDto> findProductByCategoryId(Long categoryId);
 	
 	public ProductDto findByProductId(Long productId);
 	

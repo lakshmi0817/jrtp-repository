@@ -32,9 +32,9 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<ProductDto> findProductByCategoryId(Long categoryid) {
+	public List<ProductDto> findProductByCategoryId(Long categoryId) {
 		
-		return productRepo.findByCategoryId(categoryid)
+		return productRepo.findByCategoryId(categoryId)
 				          .stream()
 				          .map(ProductMapper::convertToDto)
 				          .collect(Collectors.toList());
